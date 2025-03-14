@@ -8,26 +8,40 @@
 import Foundation
 import UIKit
 
-final class CharactersInteractor: CharacterInteractorProtocol {
-    var presenter: CharacterPresenterProtocol
-    var worker: CharacterWorkerProtocol
+final class CharactersInteractor: CharactersInteractorProtocol {
+    private let presenter: CharactersPresenterProtocol
+    private let charactersService: CharactersServiceProtocol
+    private let storageManager: StorageManagerProtocol
 
-    init(presenter: CharacterPresenterProtocol,
-         worker: CharacterWorkerProtocol
+    init(presenter: CharactersPresenterProtocol,
+         charactersService: CharactersServiceProtocol,
+         storageManager: StorageManagerProtocol
     ) {
         self.presenter = presenter
-        self.worker = worker
+        self.charactersService = charactersService
+        self.storageManager = storageManager
     }
 
-    func getCharacters(request: CharacterModel.Request) {
-        worker.getCharacters { [weak self] characters in
-            let response = CharacterModel.Response(characters: characters)
+    func viewDidLoad() {
+        getCharacters(request: CharactersModel.Request())
+    }
 
-            self?.presenter.presentCharacters(response: response)
+    private func getCharacters(request: CharactersModel.Request) {
+        if let savedCharacters = storageManager.loadCharacters() {
+            let response = CharactersModel.Response(characters: savedCharacters)
+            self.presenter.presentCharacters(response: response)
+            return
         }
-    }
 
-    func loadImage(for character: Character, completion: @escaping (UIImage?) -> Void) {
-        worker.loadImage(for: character, completion: completion)
+        charactersService.getCharacters { result in
+            switch result {
+            case .success(let characters):
+                let response = CharactersModel.Response(characters: characters)
+                self.presenter.presentCharacters(response: response)
+                self.storageManager.saveCharacters(characters)
+            case .failure(let error):
+                print("Error fetching characters: \(error)")
+            }
+        }
     }
 }

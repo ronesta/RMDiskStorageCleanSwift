@@ -7,7 +7,8 @@
 
 import Foundation
 
-protocol CharacterViewProtocol: AnyObject {
-    func displayCharacters(viewModel: CharacterModel.ViewModel)
+protocol CharactersViewProtocol: AnyObject {
+    func displayCharacters(viewModel: CharactersModel.ViewModel)
+    
     func displayError(_ message: String)
 }

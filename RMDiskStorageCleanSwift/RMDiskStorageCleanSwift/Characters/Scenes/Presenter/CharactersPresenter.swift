@@ -7,11 +7,11 @@
 
 import Foundation
 
-final class CharacterPresenter: CharacterPresenterProtocol {
-    weak var viewController: CharacterViewProtocol?
+final class CharactersPresenter: CharactersPresenterProtocol {
+    weak var viewController: CharactersViewProtocol?
 
-    func presentCharacters(response: CharacterModel.Response) {
-        let viewModel = CharacterModel.ViewModel(characters: response.characters)
+    func presentCharacters(response: CharactersModel.Response) {
+        let viewModel = CharactersModel.ViewModel(characters: response.characters)
         viewController?.displayCharacters(viewModel: viewModel)
     }
 

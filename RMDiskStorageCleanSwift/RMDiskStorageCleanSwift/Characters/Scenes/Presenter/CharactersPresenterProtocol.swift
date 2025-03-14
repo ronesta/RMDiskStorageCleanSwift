@@ -7,7 +7,8 @@
 
 import Foundation
 
-protocol CharacterPresenterProtocol {
-    func presentCharacters(response: CharacterModel.Response)
+protocol CharactersPresenterProtocol {
+    func presentCharacters(response: CharactersModel.Response)
+    
     func presentError(_ message: String)
 }

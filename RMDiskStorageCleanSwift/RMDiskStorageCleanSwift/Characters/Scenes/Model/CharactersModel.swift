@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum CharacterModel {
+enum CharactersModel {
     struct Request {
     }
 
