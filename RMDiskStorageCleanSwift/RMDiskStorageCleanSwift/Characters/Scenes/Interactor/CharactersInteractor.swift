@@ -40,6 +40,7 @@ final class CharactersInteractor: CharactersInteractorProtocol {
                 self.presenter.presentCharacters(response: response)
                 self.storageManager.saveCharacters(characters)
             case .failure(let error):
+                self.presenter.presentError(error.localizedDescription)
                 print("Error fetching characters: \(error)")
             }
         }
