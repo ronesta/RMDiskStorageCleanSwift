@@ -10,8 +10,19 @@
 		E1C5DC532D5BA0C10093EDD2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E1C5DC522D5BA0C10093EDD2 /* SnapKit */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		E1C96F5E2DA804660052B3E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1C5DC312D5BA0620093EDD2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E1C5DC382D5BA0620093EDD2;
+			remoteInfo = RMDiskStorageCleanSwift;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		E1C5DC392D5BA0620093EDD2 /* RMDiskStorageCleanSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RMDiskStorageCleanSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1C96F582DA804660052B3E6 /* CharactersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CharactersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -33,6 +44,11 @@
 			path = RMDiskStorageCleanSwift;
 			sourceTree = "<group>";
 		};
+		E1C96F592DA804660052B3E6 /* CharactersUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = CharactersUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +60,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E1C96F552DA804660052B3E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -51,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				E1C5DC3B2D5BA0620093EDD2 /* RMDiskStorageCleanSwift */,
+				E1C96F592DA804660052B3E6 /* CharactersUITests */,
 				E1C5DC3A2D5BA0620093EDD2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				E1C5DC392D5BA0620093EDD2 /* RMDiskStorageCleanSwift.app */,
+				E1C96F582DA804660052B3E6 /* CharactersUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,6 +115,29 @@
 			productReference = E1C5DC392D5BA0620093EDD2 /* RMDiskStorageCleanSwift.app */;
 			productType = "com.apple.product-type.application";
 		};
+		E1C96F572DA804660052B3E6 /* CharactersUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1C96F602DA804660052B3E6 /* Build configuration list for PBXNativeTarget "CharactersUITests" */;
+			buildPhases = (
+				E1C96F542DA804660052B3E6 /* Sources */,
+				E1C96F552DA804660052B3E6 /* Frameworks */,
+				E1C96F562DA804660052B3E6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E1C96F5F2DA804660052B3E6 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E1C96F592DA804660052B3E6 /* CharactersUITests */,
+			);
+			name = CharactersUITests;
+			packageProductDependencies = (
+			);
+			productName = CharactersUITests;
+			productReference = E1C96F582DA804660052B3E6 /* CharactersUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -102,6 +150,10 @@
 				TargetAttributes = {
 					E1C5DC382D5BA0620093EDD2 = {
 						CreatedOnToolsVersion = 16.1;
+					};
+					E1C96F572DA804660052B3E6 = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = E1C5DC382D5BA0620093EDD2;
 					};
 				};
 			};
@@ -123,12 +175,20 @@
 			projectRoot = "";
 			targets = (
 				E1C5DC382D5BA0620093EDD2 /* RMDiskStorageCleanSwift */,
+				E1C96F572DA804660052B3E6 /* CharactersUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E1C5DC372D5BA0620093EDD2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1C96F562DA804660052B3E6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -154,7 +214,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "
+";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -167,7 +228,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E1C96F542DA804660052B3E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E1C96F5F2DA804660052B3E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E1C5DC382D5BA0620093EDD2 /* RMDiskStorageCleanSwift */;
+			targetProxy = E1C96F5E2DA804660052B3E6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		E1C5DC4D2D5BA0630093EDD2 /* Debug */ = {
@@ -351,6 +427,42 @@
 			};
 			name = Release;
 		};
+		E1C96F612DA804660052B3E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QYDD73WSAD;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ronesta.CharactersUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RMDiskStorageCleanSwift;
+			};
+			name = Debug;
+		};
+		E1C96F622DA804660052B3E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QYDD73WSAD;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ronesta.CharactersUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RMDiskStorageCleanSwift;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -368,6 +480,15 @@
 			buildConfigurations = (
 				E1C5DC4D2D5BA0630093EDD2 /* Debug */,
 				E1C5DC4E2D5BA0630093EDD2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1C96F602DA804660052B3E6 /* Build configuration list for PBXNativeTarget "CharactersUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1C96F612DA804660052B3E6 /* Debug */,
+				E1C96F622DA804660052B3E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

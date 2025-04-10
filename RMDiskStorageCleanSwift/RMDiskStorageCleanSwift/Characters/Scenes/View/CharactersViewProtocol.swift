@@ -9,6 +9,6 @@ import Foundation
 
 protocol CharactersViewProtocol: AnyObject {
     func displayCharacters(viewModel: CharactersModel.ViewModel)
-    
+
     func displayError(_ message: String)
 }
