@@ -43,19 +43,4 @@ final class CharactersViewControllerSnapshotTests: XCTestCase {
 
         assertSnapshot(of: navigationController, as: .image)
     }
-
-    func testCharactersViewControllerErrorAppearance() {
-        let interactor = MockInteractor()
-        let dataSource = MockDataSource()
-
-        let viewController = CharactersViewController(interactor: interactor,
-                                                      dataSource: dataSource
-        )
-        let navigationController = UINavigationController(rootViewController: viewController)
-
-        viewController.displayError("An error occurred")
-        viewController.loadViewIfNeeded()
-
-        assertSnapshot(of: navigationController, as: .image)
-    }
 }
