@@ -18,11 +18,19 @@
 			remoteGlobalIDString = E1C5DC382D5BA0620093EDD2;
 			remoteInfo = RMDiskStorageCleanSwift;
 		};
+		E1C96F6B2DA806B90052B3E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1C5DC312D5BA0620093EDD2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E1C5DC382D5BA0620093EDD2;
+			remoteInfo = RMDiskStorageCleanSwift;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		E1C5DC392D5BA0620093EDD2 /* RMDiskStorageCleanSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RMDiskStorageCleanSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1C96F582DA804660052B3E6 /* CharactersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CharactersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1C96F672DA806B90052B3E6 /* CharactersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CharactersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -49,6 +57,11 @@
 			path = CharactersUITests;
 			sourceTree = "<group>";
 		};
+		E1C96F682DA806B90052B3E6 /* CharactersTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = CharactersTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +80,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E1C96F642DA806B90052B3E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -75,6 +95,7 @@
 			children = (
 				E1C5DC3B2D5BA0620093EDD2 /* RMDiskStorageCleanSwift */,
 				E1C96F592DA804660052B3E6 /* CharactersUITests */,
+				E1C96F682DA806B90052B3E6 /* CharactersTests */,
 				E1C5DC3A2D5BA0620093EDD2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -84,6 +105,7 @@
 			children = (
 				E1C5DC392D5BA0620093EDD2 /* RMDiskStorageCleanSwift.app */,
 				E1C96F582DA804660052B3E6 /* CharactersUITests.xctest */,
+				E1C96F672DA806B90052B3E6 /* CharactersTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -138,6 +160,29 @@
 			productReference = E1C96F582DA804660052B3E6 /* CharactersUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		E1C96F662DA806B90052B3E6 /* CharactersTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1C96F6D2DA806B90052B3E6 /* Build configuration list for PBXNativeTarget "CharactersTests" */;
+			buildPhases = (
+				E1C96F632DA806B90052B3E6 /* Sources */,
+				E1C96F642DA806B90052B3E6 /* Frameworks */,
+				E1C96F652DA806B90052B3E6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E1C96F6C2DA806B90052B3E6 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E1C96F682DA806B90052B3E6 /* CharactersTests */,
+			);
+			name = CharactersTests;
+			packageProductDependencies = (
+			);
+			productName = CharactersTests;
+			productReference = E1C96F672DA806B90052B3E6 /* CharactersTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -152,6 +197,10 @@
 						CreatedOnToolsVersion = 16.1;
 					};
 					E1C96F572DA804660052B3E6 = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = E1C5DC382D5BA0620093EDD2;
+					};
+					E1C96F662DA806B90052B3E6 = {
 						CreatedOnToolsVersion = 16.1;
 						TestTargetID = E1C5DC382D5BA0620093EDD2;
 					};
@@ -176,6 +225,7 @@
 			targets = (
 				E1C5DC382D5BA0620093EDD2 /* RMDiskStorageCleanSwift */,
 				E1C96F572DA804660052B3E6 /* CharactersUITests */,
+				E1C96F662DA806B90052B3E6 /* CharactersTests */,
 			);
 		};
 /* End PBXProject section */
@@ -189,6 +239,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		E1C96F562DA804660052B3E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1C96F652DA806B90052B3E6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -235,6 +292,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E1C96F632DA806B90052B3E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -242,6 +306,11 @@
 			isa = PBXTargetDependency;
 			target = E1C5DC382D5BA0620093EDD2 /* RMDiskStorageCleanSwift */;
 			targetProxy = E1C96F5E2DA804660052B3E6 /* PBXContainerItemProxy */;
+		};
+		E1C96F6C2DA806B90052B3E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E1C5DC382D5BA0620093EDD2 /* RMDiskStorageCleanSwift */;
+			targetProxy = E1C96F6B2DA806B90052B3E6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -463,6 +532,44 @@
 			};
 			name = Release;
 		};
+		E1C96F6E2DA806B90052B3E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QYDD73WSAD;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ronesta.CharactersTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RMDiskStorageCleanSwift.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RMDiskStorageCleanSwift";
+			};
+			name = Debug;
+		};
+		E1C96F6F2DA806B90052B3E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QYDD73WSAD;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ronesta.CharactersTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RMDiskStorageCleanSwift.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RMDiskStorageCleanSwift";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -489,6 +596,15 @@
 			buildConfigurations = (
 				E1C96F612DA804660052B3E6 /* Debug */,
 				E1C96F622DA804660052B3E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1C96F6D2DA806B90052B3E6 /* Build configuration list for PBXNativeTarget "CharactersTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1C96F6E2DA806B90052B3E6 /* Debug */,
+				E1C96F6F2DA806B90052B3E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
