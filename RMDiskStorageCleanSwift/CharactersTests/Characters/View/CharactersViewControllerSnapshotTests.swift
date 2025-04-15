@@ -10,7 +10,7 @@ import SnapshotTesting
 @testable import RMDiskStorageCleanSwift
 
 final class CharactersViewControllerSnapshotTests: XCTestCase {
-    func testCharactersViewControllerDefaultAppearance() {
+    func testCharactersViewControllerAppearance() {
         let interactor = MockInteractor()
         let dataSource = MockDataSource()
 

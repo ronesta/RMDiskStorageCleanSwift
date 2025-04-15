@@ -9,8 +9,8 @@ import XCTest
 @testable import RMDiskStorageCleanSwift
 
 final class MockPresenter: CharactersPresenterProtocol {
-    var charactersPassed: CharactersModel.Response?
-    var errorMessage: String?
+    private(set) var charactersPassed: CharactersModel.Response?
+    private(set) var errorMessage: String?
 
     func presentCharacters(response: CharactersModel.Response) {
         charactersPassed = response
