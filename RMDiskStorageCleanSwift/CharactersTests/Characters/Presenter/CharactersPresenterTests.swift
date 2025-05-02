@@ -25,8 +25,8 @@ final class CharactersPresenterTests: XCTestCase {
         super.tearDown()
     }
 
-    func testPresentCharactersShouldFormatDataForDisplay() {
-        let characters = [
+    func testGivenValidCharacters_WhenPresentCharactersCalled_ThenViewIsUpdatedWithCharacters() {
+        let mockCharacters = [
             Character(name: "Summer Smith",
                       status: "Alive",
                       species: "Human",
@@ -43,20 +43,25 @@ final class CharactersPresenterTests: XCTestCase {
                      )
         ]
 
-        let response = CharactersModel.Response(characters: characters)
+        let response = CharactersModel.Response(characters: mockCharacters)
         presenter.presentCharacters(response: response)
 
-        XCTAssertEqual(mockView.viewModelPassed?.characters, characters)
+        // Then
+        XCTAssertEqual(mockView.displayCharactersCallCount, 1)
+        XCTAssertEqual(mockView.displayCharactersArgsCharacters.first?.characters, response.characters)
+        XCTAssertEqual(mockView.displayErrorCallCount, 0)
     }
 
-    func testCharactersFetchFailedShowsErrorInView() {
-        let error = NSError(domain: "Test", code: 0, userInfo: nil)
+    func testGivenFetchFailure_WhenCharactersFetchFailed_ThenErrorIsShownInView() {
+        // Given
+        let mockError = NSError(domain: "Test", code: 0, userInfo: nil)
 
-        presenter.presentError(error.localizedDescription)
+        // When
+        presenter.presentError(mockError.localizedDescription)
 
-        XCTAssertNotNil(mockView.errorMessagePassed)
-        XCTAssertNil(mockView.viewModelPassed)
-        XCTAssertEqual(mockView.errorMessagePassed, error.localizedDescription)
+        // Then
+        XCTAssertEqual(mockView.displayErrorCallCount, 1)
+        XCTAssertEqual(mockView.displayCharactersCallCount, 0)
 
     }
 }

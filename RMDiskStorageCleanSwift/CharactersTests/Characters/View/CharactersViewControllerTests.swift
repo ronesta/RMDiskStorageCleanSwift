@@ -31,16 +31,25 @@ final class CharactersViewControllerTests: XCTestCase {
         super.tearDown()
     }
 
-    func testViewDidLoadCallsInteractorViewDidLoad() {
+    func testGivenViewController_WhenViewDidLoad_ThenInteractorViewDidLoadIsCalled() {
+        // Given
+        // ViewController initialized with mockInteractor & mockDataSource
+
+        // When
         viewController.viewDidLoad()
 
+        // Then
         XCTAssertTrue(mockInteractor.viewDidLoadCalled)
-
     }
 
-    func testSetupViews() {
+    func testGivenViewController_WhenViewDidLoad_ThenTableViewIsConfigured() {
+        // Given
+        // ViewController initialized with mockInteractor & mockDataSource
+
+        // When
         viewController.viewDidLoad()
 
+        // Then
         XCTAssertNotNil(viewController.tableView.dataSource)
         XCTAssertTrue(viewController.tableView.dataSource === mockDataSource)
 
@@ -48,7 +57,8 @@ final class CharactersViewControllerTests: XCTestCase {
         XCTAssertTrue(viewController.tableView.delegate === viewController)
     }
 
-    func testDisplayCharactersReloadsData() {
+    func testGivenCharacters_WhenDisplayCharacters_ThenDataSourceIsUpdated() {
+        // Given
         let characters = [
             Character(name: "John Doe",
                       status: "Alive",
@@ -66,19 +76,24 @@ final class CharactersViewControllerTests: XCTestCase {
                      )
         ]
 
+        // When
         let viewModel = CharactersModel.ViewModel(characters: characters)
 
         viewController.displayCharacters(viewModel: viewModel)
 
+        // Then
         XCTAssertEqual(mockDataSource.characters, characters)
     }
 
-    @MainActor func testDisplayErrorShowsAlert() {
+    @MainActor func testGivenErrorMessage_WhenShowError_ThenDisplaysAlert() {
+        // Given
         let errorMessage = "Test Error"
         let alertVerifier = AlertVerifier()
 
+        // When
         viewController.displayError(errorMessage)
 
+        // Then
         alertVerifier.verify(
             title: "Error",
             message: "Test Error",

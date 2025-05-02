@@ -11,11 +11,11 @@ enum CharactersModel {
     struct Request {
     }
 
-    struct Response {
+    struct Response: Equatable {
         let characters: [Character]
     }
 
-    struct ViewModel {
+    struct ViewModel: Equatable {
         let characters: [Character]
     }
 }

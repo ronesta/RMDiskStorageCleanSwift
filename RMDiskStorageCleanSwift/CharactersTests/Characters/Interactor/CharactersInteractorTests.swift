@@ -11,13 +11,13 @@ import XCTest
 final class CharactersInteractorTests: XCTestCase {
     private var interactor: CharactersInteractor!
     private var mockPresenter: MockPresenter!
-    private var mockService: MockCharactersServiceForInteractor!
+    private var mockService: MockCharactersService!
     private var mockStorageManager: MockStorageManager!
 
     override func setUp() {
         super.setUp()
         mockPresenter = MockPresenter()
-        mockService = MockCharactersServiceForInteractor()
+        mockService = MockCharactersService()
         mockStorageManager = MockStorageManager()
         interactor = CharactersInteractor(
             presenter: mockPresenter,
@@ -34,7 +34,8 @@ final class CharactersInteractorTests: XCTestCase {
         super.tearDown()
     }
 
-    func testGetCharactersLoadSavedCharacters() {
+    func test_GivenSavedCharacters_WhenViewDidLoad_ThenPresenterReceivesSavedCharacters() {
+        // Given
         let savedCharacters = [
             Character(name: "Summer Smith",
                       status: "Alive",
@@ -54,13 +55,18 @@ final class CharactersInteractorTests: XCTestCase {
 
         mockStorageManager.saveCharacters(savedCharacters)
 
+        // When
         interactor.viewDidLoad()
 
-        XCTAssertEqual(mockPresenter.charactersPassed?.characters, savedCharacters)
-        XCTAssertNil(mockPresenter.errorMessage)
+        // Then
+        let response = CharactersModel.Response(characters: savedCharacters)
+        XCTAssertEqual(mockPresenter.presentCharactersCallCount, 1)
+        XCTAssertEqual(mockPresenter.presentCharactersArgsResponses.first, response)
+        XCTAssertEqual(mockPresenter.presentErrorCallCount, 0)
     }
 
-    func testGetCharactersWhenCharactersAreNotSaved() {
+    func test_GivenNoSavedCharacters_WhenViewDidLoad_ThenPresenterReceivesFetchedCharactersAndSavesThem() {
+        // Given
         let fetchedCharacters = [
             Character(name: "Summer Smith",
                       status: "Alive",
@@ -78,24 +84,32 @@ final class CharactersInteractorTests: XCTestCase {
                      )
         ]
 
-        mockService.resultToReturn = .success(fetchedCharacters)
+        mockService.stubbedCharactersResult = .success(fetchedCharacters)
+
+        // When
         interactor.viewDidLoad()
 
-        XCTAssertEqual(mockPresenter.charactersPassed?.characters, fetchedCharacters)
-        XCTAssertNil(mockPresenter.errorMessage)
+        // Then
+        let response = CharactersModel.Response(characters: fetchedCharacters)
+        XCTAssertEqual(mockPresenter.presentCharactersCallCount, 1)
+        XCTAssertEqual(mockPresenter.presentCharactersArgsResponses.first, response)
+        XCTAssertEqual(mockPresenter.presentErrorCallCount, 0)
         XCTAssertEqual(mockStorageManager.characters, fetchedCharacters)
     }
 
-    func testGetCharactersSendsErrorToPresenterWhenServiceFails() {
+    func test_GivenNoSavedCharacters_WhenViewDidLoadFails_ThenPresenterReceivesError() {
+        // Given
         let mockError = NSError(domain: "Test", code: 0, userInfo: nil)
 
-        mockService.resultToReturn = .failure(mockError)
+        mockService.stubbedCharactersResult = .failure(mockError)
 
+        // When
         interactor.viewDidLoad()
 
-        XCTAssertNotNil(mockPresenter.errorMessage)
-        XCTAssertNil(mockPresenter.charactersPassed)
-        XCTAssertEqual(mockPresenter.errorMessage, mockError.localizedDescription)
+        // Then
+        XCTAssertEqual(mockPresenter.presentErrorCallCount, 1)
+        XCTAssertEqual(mockPresenter.presentErrorArgsMessages.first, mockError.localizedDescription)
+        XCTAssertEqual(mockPresenter.presentCharactersCallCount, 0)
     }
 }
 

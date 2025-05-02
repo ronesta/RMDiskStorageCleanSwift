@@ -8,14 +8,19 @@
 @testable import RMDiskStorageCleanSwift
 
 final class MockCharactersView: CharactersViewProtocol {
-    private(set) var viewModelPassed: CharactersModel.ViewModel?
-    private(set) var errorMessagePassed: String?
+    private(set) var displayCharactersCallCount = 0
+    private(set) var displayCharactersArgsCharacters = [CharactersModel.ViewModel]()
+
+    private(set) var displayErrorCallCount = 0
+    private(set) var displayErrorArgsMessages = String()
 
     func displayCharacters(viewModel: CharactersModel.ViewModel) {
-        viewModelPassed = viewModel
+        displayCharactersCallCount += 1
+        displayCharactersArgsCharacters.append(viewModel)
     }
 
     func displayError(_ message: String) {
-        errorMessagePassed = message
+        displayErrorCallCount += 1
+        displayErrorArgsMessages.append(message)
     }
 }
